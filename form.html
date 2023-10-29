@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+            text-align: center;
+            background-image: url(background.png);
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #f0f0f0; */
+            color: #333;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 20px;
+            margin:40px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        section h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        section p {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #386070;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Form Design</h2>
+        <section id="register">
+            <h2 style="color:black;">Register for the event</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required style="width: 40%;"><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required style="width: 40%;"><br>
+
+                <label for="department">Department:</label>
+                <select id="department" required style="width: 40%;">
+                    <option value="">--Select Department--</option>
+                    <option value="Computer">CSE-CYS</option>
+                    <option value="Mechanical Engineering">CSE-AI</option>
+                    <option value="Electrical Engineering">CSE</option>
+                    <option value="Electrical Engineering">ECE</option>
+                    <option value="Electrical Engineering">CCE</option>
+                </select><br>
+
+                <p>Select your interests:</p>
+                <input type="checkbox" id="Photography" name="Photography">
+                <label for="coding">Photography</label><br>
+
+                <input type="checkbox" id="robotics" name="robotics">
+                <label for="robotics">Robotics</label><br>
+
+                <input type="checkbox" id="webdev" name="webdev" checked>
+                <label for="webdev">Web Development</label><br>
+
+                <label for="state">State:</label>
+                <select id="state" required style="width: 40%;">
+                    <option value="">--Select State--</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Karnataka">Karnataka</option>
+                </select><br>
+
+                <label for="password">Create Password:</label>
+                <input type="password" id="password" minlength="8" required style="width: 40%;"><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" pattern="[0-9]{10}" required style="width: 40%;"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            background-image: url(technical.png);
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            padding: 20px;
+            width: 400px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Electricity Bill Calculator</h2>
+        <label for="units">Enter Units (kWh):</label>
+        <input type="number" id="units" placeholder="Enter units"><br>
+
+        <label for="rate">Rate (per kWh):</label>
+        <input type="number" id="rate" placeholder="Rate per kWh"><br>
+
+        <button onclick="calculateBill()">Calculate</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateBill() {
+            const units = parseFloat(document.getElementById("units").value);
+            const rate = parseFloat(document.getElementById("rate").value);
+
+            if (!isNaN(units) && !isNaN(rate)) {
+                const bill = units * rate;
+                document.getElementById("result").textContent = `Your electricity bill is $${bill.toFixed(2)}`;
+            } else {
+                document.getElementById("result").textContent = "Please enter valid numbers.";
+            }
+        }
+    </script>
+</body>
+</html>

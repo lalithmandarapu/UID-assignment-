@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Captcha verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url(robots.jpg);
+            background-size: 100%;
+            background-position: 0px 0px;
+        }
+
+
+        #captcha {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        #captchaText {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #captchaInput {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #resultMessage {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .centering {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centering" style="color:white;">
+        <h1>Verify CAPTCHA</h1>
+        <p>Verify that you're not a robot by solving this CAPTCHA:</p>
+
+        <div id="captcha">
+            <span id="captchaText" style="color:#333;"></span>
+            <input type="text" id="captchaInput" placeholder="Enter the CAPTCHA text" style="width:70%">
+            <button onclick="checkCaptcha()">Verify</button>
+        </div>
+
+        <p id="resultMessage" style="color: white;"></p>
+
+    </div>
+
+    <script>
+        // Generate a random CAPTCHA text
+        function generateCaptcha() {
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var captchaText = '';
+            for (var i = 0; i < 6; i++) {
+                var randomIndex = Math.floor(Math.random() * characters.length);
+                captchaText += characters.charAt(randomIndex);
+            }
+            return captchaText;
+        }
+
+        // Display the generated CAPTCHA
+        var captchaText = generateCaptcha();
+        document.getElementById('captchaText').textContent = captchaText;
+
+        // Check if the entered CAPTCHA is correct
+        function checkCaptcha() {
+            var enteredText = document.getElementById('captchaInput').value;
+            if (enteredText === captchaText) {
+                document.getElementById('resultMessage').textContent = 'CAPTCHA verified. You are not a robot!';
+            } else {
+                document.getElementById('resultMessage').textContent = 'CAPTCHA verification failed. Please try again.';
+                // Generate a new CAPTCHA for another attempt
+                captchaText = generateCaptcha();
+                document.getElementById('captchaText').textContent = captchaText;
+                document.getElementById('captchaInput').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
